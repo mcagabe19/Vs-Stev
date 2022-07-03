@@ -334,7 +334,6 @@ class PlayState extends MusicBeatState
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
 
-		switch (curStage)
 {
 case 'stage': //Stev Stage (For Character Editor)
 				GameOverSubstate.characterName = 'bf-dead';
