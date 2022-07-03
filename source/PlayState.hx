@@ -343,7 +343,6 @@ case 'stage': //Stev Stage (For Character Editor)
 				bg.updateHitbox();
 				add(bg);
 }
-
 {
 case 'lol': //Stev Stage
                 GameOverSubstate.characterName = 'bf-dead';
@@ -352,7 +351,6 @@ case 'lol': //Stev Stage
 				bg.updateHitbox();
 				add(bg);
 }
-
 {
 case 'cheater': //Evil Stev Stage
                 GameOverSubstate.characterName = 'bf-dead';
@@ -361,7 +359,6 @@ case 'cheater': //Evil Stev Stage
 				bg.updateHitbox();
 				add(bg);
 }
-
 {
 case 'grief': //Griefed Stage (Unused)
                 GameOverSubstate.characterName = 'bf-dead';
@@ -370,7 +367,6 @@ case 'grief': //Griefed Stage (Unused)
 				bg.updateHitbox();
 				add(bg);
 }
-
 {
 case 'night': //Sexy Electro Guitar Stev Stage
                 GameOverSubstate.characterName = 'bf-night-dead';
@@ -379,7 +375,6 @@ case 'night': //Sexy Electro Guitar Stev Stage
 				bg.updateHitbox();
 				add(bg);
 }
-
 {
 case 'night': //Super Duper Flat Stage
                 GameOverSubstate.characterName = 'bf-dead';
@@ -394,11 +389,6 @@ case 'night': //Super Duper Flat Stage
 		}
 
 		add(gfGroup);
-
-		// Shitty layering but whatev it works LOL
-		if (curStage == 'limo')
-			add(limo);
-
 		add(dadGroup);
 		add(boyfriendGroup);
 
