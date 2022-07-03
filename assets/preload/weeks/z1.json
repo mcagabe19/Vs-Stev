@@ -1,0 +1,40 @@
+{
+	"storyName": "totally fcable (no fake 100% oh mah gawd)",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "stev",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"Epic Guitar",
+			"lmfao",
+			[
+				255,
+				253,
+				255
+			]
+		],
+		[
+			"Crafty",
+			"stevreal",
+			[
+				255,
+				255,
+				255
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekName": "Custom Week"
+}

@@ -1,0 +1,59 @@
+{
+	"storyName": "Your New Week",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"hello b-side",
+			"stevrealbbb",
+			[
+				175,
+				0,
+				135
+			]
+		],
+		[
+			"i can has diamonds b-side",
+			"stevrealbbb",
+			[
+				175,
+				0,
+				135
+			]
+		],
+		[
+			"vibing b-side",
+			"stevrealbbb",
+			[
+				175,
+				0,
+				135
+			]
+		],
+		[
+			"spammo b-side",
+			"stevrealbbb",
+			[
+				175,
+				0,
+				135
+			]
+		]
+	],
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Custom Week"
+}

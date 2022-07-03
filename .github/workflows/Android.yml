@@ -1,0 +1,151 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build
+
+# Controls when the action will run.
+on: [push,pull_request,workflow_dispatch]
+
+# A workflow run is made up of one or 69 jobs that can run sequentially or in parallel
+jobs:
+  # This workflow dsoent contain a single job called "build"
+  Android:
+    name: Android
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@v1
+        id: setup-ndk
+        with:
+          ndk-version: r15c
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 6
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@v1.1.5
+        with:
+          haxe-version: 4.2.0
+
+      - name: Install Haxelib
+        run: |
+          haxelib setup ~/haxelib
+          haxelib install hxcpp > /dev/null
+          haxelib git openfl https://github.com/mcagabe19/fastfl-9.0.2.git
+          haxelib install lime --quiet
+          haxelib install lime-samples --quiet
+          haxelib install layout --quiet
+          haxelib install openfl-samples --quiet
+          haxelib install flixel-demos --quiet
+          haxelib install flixel-addons --quiet
+          haxelib install flixel-templates --quiet
+          haxelib install flixel-tools --quiet
+          haxelib install flixel-ui --quiet
+          haxelib install actuate --quiet
+          haxelib install systools --quiet
+          haxelib install box2d --quiet
+          haxelib install hscript --quiet
+          haxelib install flixel --quiet
+          haxelib run lime setup flixel
+          haxelib git faxe https://github.com/Voicefulmario19/faxe --quiet
+          haxelib git polymod https://github.com/Voicefulmario19/polymod.git --quiet
+          haxelib git linc_luajit https://github.com/Voicefulmario19/linc_luajit.git --quiet
+
+      - name: Setup Lime
+        run: |
+          haxelib run lime setup -alias -y
+          haxelib run lime config ANDROID_SDK $ANDROID_HOME
+          haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
+          haxelib run lime config JAVA_HOME $JAVA_HOME
+          haxelib run lime config ANDROID_SETUP true
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+
+      - name: Compile
+        run: |
+          haxelib run lime build android -final
+          rm export/release/android/bin/app/build/outputs/apk/debug/*.json
+
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: androidBuild
+          path: export/release/android/bin/app/build/outputs/apk/debug
+
+  Android-Debug:
+    name: Android Debug
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@v1
+        id: setup-ndk
+        with:
+          ndk-version: r20b
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@v1.1.5
+        with:
+          haxe-version: 4.2.0
+
+      - name: Install Haxelib
+        run: |
+          haxelib setup ~/haxelib
+          haxelib install hxcpp > /dev/null
+          haxelib git openfl https://github.com/mcagabe19/fastfl-9.0.2.git
+          haxelib install lime --quiet
+          haxelib install lime-samples --quiet
+          haxelib install layout --quiet
+          haxelib install openfl-samples --quiet
+          haxelib install flixel-demos --quiet
+          haxelib install flixel-addons --quiet
+          haxelib install flixel-templates --quiet
+          haxelib install flixel-tools --quiet
+          haxelib install flixel-ui --quiet
+          haxelib install actuate --quiet
+          haxelib install systools --quiet
+          haxelib install box2d --quiet
+          haxelib install hscript --quiet
+          haxelib --never install flixel --quiet
+          haxelib run lime setup flixel
+          haxelib git faxe https://github.com/uhrobots/faxe --quiet
+          haxelib git polymod https://github.com/MasterEric/polymod.git --quiet
+          haxelib git linc_luajit https://github.com/Daninnocent/linc_luajit.git --quiet
+
+      - name: Setup Lime
+        run: |
+          haxelib run lime setup -alias -y
+          haxelib run lime config ANDROID_SDK $ANDROID_HOME
+          haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
+          haxelib run lime config JAVA_HOME $JAVA_HOME
+          haxelib run lime config ANDROID_SETUP true
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+
+      - name: Compile
+        run: |
+          haxelib run lime build android -debug
+          rm export/debug/android/bin/app/build/outputs/apk/debug/*.json
+        
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: androidBuildDebug
+          path: export/debug/android/bin/app/build/outputs/apk/debug

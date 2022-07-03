@@ -1,0 +1,27 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"storyName": "how to funk with stev",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"Stevtorial",
+			"stevreal",
+			[
+				255,
+				255,
+				255
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "Stevtorial"
+}

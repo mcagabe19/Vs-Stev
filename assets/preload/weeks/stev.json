@@ -1,0 +1,58 @@
+{
+	"storyName": "stev: the god of spamming",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "stev",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"songs": [
+		[
+			"hello",
+			"stevreal",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"i can has diamonds",
+			"stevreal",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"vibing",
+			"stevreal",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"spammo",
+			"stevreal",
+			[
+				255,
+				255,
+				255
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekName": "Stev Week"
+}

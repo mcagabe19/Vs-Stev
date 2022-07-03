@@ -1,0 +1,40 @@
+{
+	"storyName": "stev: the god of spamming",
+	"difficulties": "normal",
+	"hideFreeplay": false,
+	"weekBackground": "stev",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"songs": [
+		[
+			"XD",
+			"stevreal",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"Vibing Remix",
+			"stevreal",
+			[
+				255,
+				255,
+				255
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekName": "Stev Week"
+}

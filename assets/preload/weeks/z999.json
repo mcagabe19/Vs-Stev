@@ -1,0 +1,49 @@
+{
+	"storyName": "Your New Week",
+	"difficulties": "Stev",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"Cheating",
+			"die",
+			[
+				60,
+				60,
+				60
+			]
+		],
+		[
+			"Emerald",
+			"die",
+			[
+				60,
+				60,
+				60
+			]
+		],
+		[
+			"Tape",
+			"die",
+			[
+				60,
+				60,
+				60
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekName": "Custom Week"
+}
