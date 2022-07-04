@@ -358,6 +358,7 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'stage': //Week 1
+			 GameOverSubstate.characterName = 'bf-dead';
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 				add(bg);
 
