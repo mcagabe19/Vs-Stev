@@ -46,6 +46,8 @@
 	<!-- PSYCH ENGINE CUSTOMIZATION -->
 	<define name="MODS_ALLOWED" if="desktop || android" />
 	<define name="LUA_ALLOWED" if="windows || android" />
+        <define name="ACHIEVEMENTS_ALLOWED" unless="android" /> <!-- beacuse yes -->
+       
 
 	<!-- Mobile Shit -->
 	<define name="mobileC" if="mobile"/>
