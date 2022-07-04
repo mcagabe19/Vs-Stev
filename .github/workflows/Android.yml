@@ -70,14 +70,14 @@ jobs:
 
       - name: Compile
         run: |
-          haxelib run lime build android -final -32
-          rm export/32bits/android/bin/app/build/outputs/apk/debug/*.json
+          haxelib run lime build android -final
+          rm export/release/android/bin/app/build/outputs/apk/debug/*.json
 
       - name: Publish Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
           name: androidBuild
-          path: export/32bits/android/bin/app/build/outputs/apk/debug
+          path: export/release/android/bin/app/build/outputs/apk/debug
 
   Android-Debug:
     name: Android Debug
@@ -125,9 +125,9 @@ jobs:
           haxelib install hscript --quiet
           haxelib --never install flixel --quiet
           haxelib run lime setup flixel
-          haxelib git faxe https://github.com/uhrobots/faxe --quiet
-          haxelib git polymod https://github.com/MasterEric/polymod.git --quiet
-          haxelib git linc_luajit https://github.com/Daninnocent/linc_luajit.git --quiet
+          haxelib git faxe https://github.com/Voicefulmario19/faxe --quiet
+          haxelib git polymod https://github.com/Voicefulmario19/polymod.git --quiet
+          haxelib git linc_luajit https://github.com/Voicefulmario19/linc_luajit.git --quiet
 
       - name: Setup Lime
         run: |
@@ -141,7 +141,7 @@ jobs:
 
       - name: Compile
         run: |
-          haxelib run lime build android -debug -32
+          haxelib run lime build android -debug
           rm export/debug/android/bin/app/build/outputs/apk/debug/*.json
         
       - name: Publish Artifact
