@@ -21,6 +21,7 @@ import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxWaveEffect;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.graphics.atlas.FlxAtlas;
+import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
@@ -263,10 +264,8 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-        #if MODS_ALLOWED
- 		Paths.destroyLoadedImages(resetSpriteCache);
-  		#end	
-		resetSpriteCache = false;
+ 		Paths.clearUnusedMemory();
+ 		Paths.clearStoredMemory();
 
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
