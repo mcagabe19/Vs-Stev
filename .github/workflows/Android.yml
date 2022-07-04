@@ -70,14 +70,14 @@ jobs:
 
       - name: Compile
         run: |
-          haxelib run lime build android -final
-          rm export/release/android/bin/app/build/outputs/apk/debug/*.json
+          haxelib run lime build android -final -32
+          rm export/32bits/android/bin/app/build/outputs/apk/debug/*.json
 
       - name: Publish Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
           name: androidBuild
-          path: export/release/android/bin/app/build/outputs/apk/debug
+          path: export/32bits/android/bin/app/build/outputs/apk/debug
 
   Android-Debug:
     name: Android Debug
@@ -141,7 +141,7 @@ jobs:
 
       - name: Compile
         run: |
-          haxelib run lime build android -debug
+          haxelib run lime build android -debug -32
           rm export/debug/android/bin/app/build/outputs/apk/debug/*.json
         
       - name: Publish Artifact
