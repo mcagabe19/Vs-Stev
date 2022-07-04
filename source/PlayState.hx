@@ -119,7 +119,7 @@ class PlayState extends MusicBeatState
 	public var dadGroup:FlxSpriteGroup;
 	public var gfGroup:FlxSpriteGroup;
 
-	public static var curStage:String = '';
+	public static var :String = '';
 	public static var isPixelStage:Bool = false;
 	public static var SONG:SwagSong = null;
 	public static var isStoryMode:Bool = false;
@@ -315,31 +315,31 @@ class PlayState extends MusicBeatState
 
 		GameOverSubstate.resetVariables();
 		var songName:String = Paths.formatToSongPath(SONG.song);
-		curStage = PlayState.SONG.stage;
-		trace('stage is: ' + curStage);
+		 = PlayState.SONG.stage;
+		trace('stage is: ' + );
 		if(PlayState.SONG.stage == null || PlayState.SONG.stage.length < 1) {
 			switch (songName)
 			{
 				case 'spookeez' | 'south' | 'monster':
-					curStage = 'spooky';
+					 = 'spooky';
 				case 'pico' | 'blammed' | 'philly' | 'philly-nice':
-					curStage = 'philly';
+					 = 'philly';
 				case 'milf' | 'satin-panties' | 'high':
-					curStage = 'limo';
+					 = 'limo';
 				case 'cocoa' | 'eggnog':
-					curStage = 'mall';
+					 = 'mall';
 				case 'winter-horrorland':
-					curStage = 'mallEvil';
+					 = 'mallEvil';
 				case 'senpai' | 'roses':
-					curStage = 'school';
+					 = 'school';
 				case 'thorns':
-					curStage = 'schoolEvil';
+					 = 'schoolEvil';
 				default:
-					curStage = 'stage';
+					 = 'stage';
 			}
 		}
 
-		var stageData:StageFile = StageData.getStageFile(curStage);
+		var stageData:StageFile = StageData.getStageFile();
 		if(stageData == null) { //Stage couldn't be found, create a dummy stage for preventing a crash
 			stageData = {
 				directory: "",
@@ -365,8 +365,8 @@ class PlayState extends MusicBeatState
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
 		
-{
 		switch (curStage);
+{
 case 'stage': //Stev Stage (For Character Editor)
 				var bg:BGSprite = new BGSprite('urghh', -300, -320, 1.3, 1.3);
 				bg.scrollFactor.set(1, 1);
@@ -662,13 +662,13 @@ case 'flat': //Super Duper Flat Stage
 		add(gfGroup);
 
 		// Shitty layering but whatev it works LOL
-		if (curStage == 'limo')
+		if ( == 'limo')
 			add(limo);
 
 		add(dadGroup);
 		add(boyfriendGroup);
 		
-		if(curStage == 'spooky') {
+		if( == 'spooky') {
 			add(halloweenWhite);
 		}
 
@@ -679,13 +679,13 @@ case 'flat': //Super Duper Flat Stage
         var doPush:Bool = false;
 
 		var doPush:Bool = false;
-		var luaFile:String = 'stages/' + curStage + '.lua';
+		var luaFile:String = 'stages/' +  + '.lua';
 		luaFile = Paths.getPreloadPath(luaFile);
 		if(OpenFlAssets.exists(luaFile)) {
 			doPush = true;
 		}
 
-		if(curStage == 'philly') {
+		if( == 'philly') {
 			phillyCityLightsEvent = new FlxTypedGroup<BGSprite>();
 			for (i in 0...5)
 			{
@@ -714,13 +714,13 @@ case 'flat': //Super Duper Flat Stage
 			blammedLightsBlack.wasAdded = true;
 			modchartSprites.set('blammedLightsBlack', blammedLightsBlack);
 		}
-		if(curStage == 'philly') insert(members.indexOf(blammedLightsBlack) + 1, phillyCityLightsEvent);
+		if( == 'philly') insert(members.indexOf(blammedLightsBlack) + 1, phillyCityLightsEvent);
 		blammedLightsBlack = modchartSprites.get('blammedLightsBlack');
 		blammedLightsBlack.alpha = 0.0;
 
 		var gfVersion:String = SONG.player3;
 		if(gfVersion == null || gfVersion.length < 1) {
-			switch (curStage)
+			switch ()
 			{
 				case 'limo':
 					gfVersion = 'gf-car';
@@ -756,7 +756,7 @@ case 'flat': //Super Duper Flat Stage
 			gf.visible = false;
 		}
 
-		switch(curStage)
+		switch()
 		{
 			case 'limo':
 				resetFastCar();
@@ -1379,7 +1379,7 @@ case 'flat': //Super Duper Flat Stage
 				}
 
 				// head bopping for bg characters on Mall
-				if(curStage == 'mall') {
+				if( == 'mall') {
 					if(!ClientPrefs.lowQuality)
 						upperBoppers.dance(true);
 	
@@ -1886,7 +1886,7 @@ case 'flat': //Super Duper Flat Stage
 
 		callOnLuas('onUpdate', [elapsed]);
 
-		switch (curStage)
+		switch ()
 		{
 			case 'schoolEvil':
 				if(!ClientPrefs.lowQuality && bgGhouls.animation.curAnim.finished) {
@@ -2521,7 +2521,7 @@ case 'flat': //Super Duper Flat Stage
 						gf.heyTimer = time;
 					}
 
-					if(curStage == 'mall') {
+					if( == 'mall') {
 						bottomBoppers.animation.play('hey', true);
 						heyTimer = time;
 					}
@@ -2597,7 +2597,7 @@ case 'flat': //Super Duper Flat Stage
 						gf.color = color;
 					}
 					
-					if(curStage == 'philly') {
+					if( == 'philly') {
 						if(phillyCityLightsEvent != null) {
 							phillyCityLightsEvent.forEach(function(spr:BGSprite) {
 								spr.visible = false;
@@ -2618,7 +2618,7 @@ case 'flat': //Super Duper Flat Stage
 						});
 					}
 
-					if(curStage == 'philly') {
+					if( == 'philly') {
 						phillyCityLights.forEach(function(spr:BGSprite) {
 							spr.visible = false;
 						});
@@ -2668,7 +2668,7 @@ case 'flat': //Super Duper Flat Stage
 				}
 
 			case 'Trigger BG Ghouls':
-				if(curStage == 'schoolEvil' && !ClientPrefs.lowQuality) {
+				if( == 'schoolEvil' && !ClientPrefs.lowQuality) {
 					bgGhouls.dance(true);
 					bgGhouls.visible = true;
 				}
@@ -2853,7 +2853,7 @@ case 'flat': //Super Duper Flat Stage
 		} else {
 			camFollow.set(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 
-			switch (curStage)
+			switch ()
 			{
 				case 'limo':
 					camFollow.x = boyfriend.getMidpoint().x - 300;
@@ -3744,7 +3744,7 @@ case 'flat': //Super Duper Flat Stage
 
 	function killHenchmen():Void
 	{
-		if(!ClientPrefs.lowQuality && ClientPrefs.violence && curStage == 'limo') {
+		if(!ClientPrefs.lowQuality && ClientPrefs.violence &&  == 'limo') {
 			if(limoKillingState < 1) {
 				limoMetalPole.x = -400;
 				limoMetalPole.visible = true;
@@ -3770,7 +3770,7 @@ case 'flat': //Super Duper Flat Stage
 
 	function resetLimoKill():Void
 	{
-		if(curStage == 'limo') {
+		if( == 'limo') {
 			limoMetalPole.x = -500;
 			limoMetalPole.visible = false;
 			limoLight.x = -500;
@@ -3892,7 +3892,7 @@ case 'flat': //Super Duper Flat Stage
 			dad.dance();
 		}
 
-		switch (curStage)
+		switch ()
 		{
 			case 'school':
 				if(!ClientPrefs.lowQuality) {
@@ -3941,7 +3941,7 @@ case 'flat': //Super Duper Flat Stage
 				}
 		}
 
-		if (curStage == 'spooky' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
+		if ( == 'spooky' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
 		{
 			lightningStrikeShit();
 		}
