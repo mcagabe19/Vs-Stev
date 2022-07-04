@@ -365,50 +365,57 @@ class PlayState extends MusicBeatState
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
 
-		switch (curStage)
-
+		switch (curStage);
+#if MODS_ALLOWED
+{
 case 'stage': //Stev Stage (For Character Editor)
 				GameOverSubstate.characterName = 'bf-dead';
 				var bg:BGSprite = new BGSprite('urghh', -300, -320, 1.3, 1.3);
 				bg.scrollFactor.set(1, 1);
 				bg.updateHitbox();
 				add(bg);
-				
+}
+{
 case 'lol': //Stev Stage
         GameOverSubstate.characterName = 'bf-dead';
 				var bg:BGSprite = new BGSprite('urghh', -300, -320, 1.3, 1.3);
 				bg.scrollFactor.set(1, 1);
 				bg.updateHitbox();
 				add(bg);
-				
+}
+{
 case 'cheater': //Evil Stev Stage
                 GameOverSubstate.characterName = 'bf-dead';
 				var bg:BGSprite = new BGSprite('evilstev', -300, -320, 1.3, 1.3);
 				bg.scrollFactor.set(1, 1);
 				bg.updateHitbox();
 				add(bg);
-				
+}
+{
 case 'grief': //Griefed Stage (Unused)
                 GameOverSubstate.characterName = 'bf-dead';
 				var bg:BGSprite = new BGSprite('griefed', -300, -320, 1.3, 1.3);
 				bg.scrollFactor.set(1, 1);
 				bg.updateHitbox();
 				add(bg);
-				
+}
+{
 case 'night': //Sexy Electro Guitar Stev Stage
                 GameOverSubstate.characterName = 'bf-night-dead';
 				var bg:BGSprite = new BGSprite('betabelike', -300, -320, 1.3, 1.3);
 				bg.scrollFactor.set(1, 1);
 				bg.updateHitbox();
 				add(bg);
-				
+}
+{
 case 'night': //Super Duper Flat Stage
         GameOverSubstate.characterName = 'bf-dead';
 				var bg:BGSprite = new BGSprite('flat', -200, -200, 4, 3.5);
 				bg.scrollFactor.set(1, 1);
 				bg.updateHitbox();
 				add(bg);
-				
+}
+#end
 			case 'spooky': //Week 2
 				if(!ClientPrefs.lowQuality) {
 					halloweenBG = new BGSprite('halloween_bg', -200, -100, ['halloweem bg0', 'halloweem bg lightning strike']);
