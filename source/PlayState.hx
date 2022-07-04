@@ -366,12 +366,14 @@ class PlayState extends MusicBeatState
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
 
 		switch (curStage);
+{
 case 'stage': //Stev Stage (For Character Editor)
        if not (!ClientPrefs.lowQuality) {
 				var bg:BGSprite = new BGSprite('urghh', -300, -320, 1.3, 1.3);
 				bg.scrollFactor.set(1, 1);
 				bg.updateHitbox();
 				add(bg);
+}
 case 'lol': //Stev Stage
         if not (!ClientPrefs.lowQuality) {
         GameOverSubstate.characterName = 'bf-dead';
