@@ -401,7 +401,7 @@ case 'night': //Sexy Electro Guitar Stev Stage
 				bg.updateHitbox();
 				add(bg);
 				
-case 'flat': //Super Duper Flat Stage
+case 'superflat': //Super Duper Flat Stage
         GameOverSubstate.characterName = 'bf-dead';
 				var bg:BGSprite = new BGSprite('flat', -200, -200, 4, 3.5);
 				bg.scrollFactor.set(1, 1);

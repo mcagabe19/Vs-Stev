@@ -1,8 +1,6 @@
 stage
-spooky
-philly
-limo
-mall
-mallEvil
-school
-schoolEvil
+lol
+grief
+flat
+cheater
+superflat
